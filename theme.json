@@ -27,14 +27,17 @@
 		"layout": {
 			"allowEditing": false,
 			"allowCustomContentAndWideSize": false,
-			"contentSize": "1000px"
+			"contentSize": "1000px",
+			"wideSize": "100%"
 		},
 		"position": {
 			"sticky": true
 		},
+		"shadow": {
+			"defaultPresets": false
+		},
 		"spacing": {
 			"customSpacingSize": false,
-			"margin": true,
 			"padding": true,
 			"spacingSizes": [
 				{
@@ -44,7 +47,7 @@
 				},
 				{
 					"name": "Small",
-					"size": ".75rem",
+					"size": "1rem",
 					"slug": "flyhigh-s"
 				},
 				{
@@ -77,6 +80,12 @@
 		"useRootPaddingAwareAlignments": true
 	},
 	"styles": {
+		"spacing": {
+			"padding": {
+				"right": "var:preset|spacing|flyhigh-s",
+				"left": "var:preset|spacing|flyhigh-s"
+			}
+		},
 		"typography": {
 			"fontFamily": "var:preset|font-family|flyhigh-primary"
 		}

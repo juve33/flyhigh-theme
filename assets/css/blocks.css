@@ -1,0 +1,17 @@
+/* COVER */
+
+.wp-block-cover.alignwide {
+    margin-block: var(--wp--preset--spacing--flyhigh-s);
+}
+
+main>:first-child>:first-child>.wp-block-cover:first-child {
+    margin-top: 0;
+}
+
+
+
+/* GROUP */
+
+.wp-block-group {
+    display: flow-root;
+}
