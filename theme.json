@@ -1,6 +1,86 @@
 {
 	"$schema": "https://schemas.wp.org/wp/6.9/theme.json",
 	"version": 3,
+	"settings": {
+		"color": {
+			"defaultDuotone": true,
+			"defaultGradients": true,
+			"defaultPalette": false,
+			"palette": [
+				{
+					"color": "#3892a3",
+					"name": "Sky-Blue",
+					"slug": "flyhigh-blue"
+				},
+				{
+					"color": "#cca75b",
+					"name": "Yellow",
+					"slug": "flyhigh-yellow"
+				},
+				{
+					"color": "#ffffff",
+					"name": "White",
+					"slug": "flyhigh-white"
+				}
+			]
+		},
+		"layout": {
+			"allowEditing": false,
+			"allowCustomContentAndWideSize": false,
+			"contentSize": "1000px"
+		},
+		"position": {
+			"sticky": true
+		},
+		"spacing": {
+			"customSpacingSize": false,
+			"margin": true,
+			"padding": true,
+			"spacingSizes": [
+				{
+					"name": "X-Small",
+					"size": "0.5em",
+					"slug": "flyhigh-xs"
+				},
+				{
+					"name": "Small",
+					"size": ".75rem",
+					"slug": "flyhigh-s"
+				},
+				{
+					"name": "Medium",
+					"size": "1.5rem",
+					"slug": "flyhigh-m"
+				},
+				{
+					"name": "Large",
+					"size": "3rem",
+					"slug": "flyhigh-l"
+				},
+				{
+					"name": "X-Large",
+					"size": "6rem",
+					"slug": "flyhigh-xl"
+				}
+			]
+		},
+		"typography": {
+			"customFontSize": false,
+			"fontFamilies": [
+				{
+					"name": "Primary",
+					"slug": "flyhigh-primary",
+					"fontFamily": "sans-serif"
+				}
+			]
+		},
+		"useRootPaddingAwareAlignments": true
+	},
+	"styles": {
+		"typography": {
+			"fontFamily": "var:preset|font-family|flyhigh-primary"
+		}
+	},
 	"templateParts": [
 		{
 			"area": "header",
