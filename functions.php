@@ -88,12 +88,15 @@ function flyhigh_replace_nav_icon($block_content, $block) {
     libxml_use_internal_errors(true);
 
     $dom = new DOMDocument();
-    $dom->loadHTML($block_content);
+    $dom->loadHTML(
+        '<?xml encoding="utf-8" ?>' . $block_content,
+        LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD
+    );
 
     $xpath = new DOMXPath($dom);
 
     // Custom icons
-    $open_svg = '
+    static $open_svg = '
         <svg viewBox="0 0 24 24" class="flyhigh-menu-icon" xmlns="http://www.w3.org/2000/svg">
             <style>
                 text {
@@ -107,17 +110,17 @@ function flyhigh_replace_nav_icon($block_content, $block) {
         </svg>
     ';
 
-    $close_svg = '
+    static $close_svg = '
         <svg viewBox="0 0 24 24" class="flyhigh-menu-icon" xmlns="http://www.w3.org/2000/svg">
-    <style>
-        text {
-            font-family: inherit;
-            font-size: 5.5px;
-        }
-    </style>
+            <style>
+                text {
+                    font-family: inherit;
+                    font-size: 5.5px;
+                }
+            </style>
 
-    <path d="M 6 6 l 12 12 M 18 6 l -12 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-</svg>
+            <path d="M 6 6 l 12 12 M 18 6 l -12 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
     ';
 
     // Replace open button icon
