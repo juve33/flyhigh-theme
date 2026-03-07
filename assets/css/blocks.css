@@ -4,8 +4,12 @@
     margin-block: var(--wp--preset--spacing--flyhigh-s);
 }
 
-main>:first-child>:first-child>.wp-block-cover:first-child {
-    margin-top: 0;
+
+
+/* BUTTONS */
+
+.flyhigh-buttons-compact :where(.wp-block-button .wp-block-button__link) {
+    padding: var(--wp--preset--spacing--flyhigh-xxs);
 }
 
 
@@ -14,4 +18,16 @@ main>:first-child>:first-child>.wp-block-cover:first-child {
 
 .wp-block-group {
     display: flow-root;
+}
+
+.wp-block-group.is-layout-grid.alignfull {
+    gap: 0;
+}
+
+
+
+/* PARAGRAPH */
+
+p:first-child {
+    margin-top: 0;
 }

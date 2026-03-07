@@ -2,6 +2,9 @@
 	"$schema": "https://schemas.wp.org/wp/6.9/theme.json",
 	"version": 3,
 	"settings": {
+		"border": {
+			"radius": false
+		},
 		"color": {
 			"defaultDuotone": true,
 			"defaultGradients": true,
@@ -25,7 +28,7 @@
 			]
 		},
 		"layout": {
-			"allowEditing": false,
+			"allowEditing": true,
 			"allowCustomContentAndWideSize": false,
 			"contentSize": "1000px",
 			"wideSize": "100%"
@@ -37,12 +40,17 @@
 			"defaultPresets": false
 		},
 		"spacing": {
+			"blockGap": false,
 			"customSpacingSize": false,
-			"padding": true,
 			"spacingSizes": [
 				{
+					"name": "2X-Small",
+					"size": "0.5rem",
+					"slug": "flyhigh-xxs"
+				},
+				{
 					"name": "X-Small",
-					"size": "0.5em",
+					"size": "0.75rem",
 					"slug": "flyhigh-xs"
 				},
 				{
@@ -68,6 +76,7 @@
 			]
 		},
 		"typography": {
+			"defaultFontSizes": false,
 			"customFontSize": false,
 			"fontFamilies": [
 				{
@@ -75,19 +84,87 @@
 					"slug": "flyhigh-primary",
 					"fontFamily": "sans-serif"
 				}
+			],
+			"fontSizes": [
+				{
+					"name": "Small",
+					"slug": "flyhigh-small",
+					"size": "0.8rem"
+				},
+				{
+					"name": "Medium",
+					"slug": "flyhigh-medium",
+					"size": "1rem"
+				},
+				{
+					"name": "Large",
+					"slug": "flyhigh-large",
+					"size": "1.5rem"
+				},
+				{
+					"name": "Extra Large",
+					"slug": "flyhigh-x-large",
+					"size": "2rem"
+				}
 			]
 		},
-		"useRootPaddingAwareAlignments": true
+		"useRootPaddingAwareAlignments": true,
+		"blocks": {
+			"core/group": {
+				"dimensions": {
+					"minHeight": true
+				},
+				"spacing": {
+					"padding": true
+				}
+			}
+		}
 	},
 	"styles": {
 		"spacing": {
+			"blockGap": "var:preset|spacing|flyhigh-s",
 			"padding": {
 				"right": "var:preset|spacing|flyhigh-s",
 				"left": "var:preset|spacing|flyhigh-s"
 			}
 		},
 		"typography": {
-			"fontFamily": "var:preset|font-family|flyhigh-primary"
+			"fontFamily": "var:preset|font-family|flyhigh-primary",
+			"fontSize": "var:preset|font-size|flyhigh-medium"
+		},
+		"blocks": {
+			"core/button": {
+				"border": {
+					"radius": "var:preset|spacing|flyhigh-xxs"
+				},
+				"spacing": {
+					"padding": {
+						"top": "var:preset|spacing|flyhigh-s",
+						"right": "var:preset|spacing|flyhigh-m",
+						"bottom": "var:preset|spacing|flyhigh-s",
+						"left": "var:preset|spacing|flyhigh-m"
+					}
+				},
+				"typography": {
+					"lineHeight": "1"
+				},
+				"variations": {
+					"buttons-compact": {
+						"elements": {
+							"button": {
+								"spacing": {
+									"padding": {
+										"top": "var:preset|spacing|flyhigh-xxs",
+										"right": "var:preset|spacing|flyhigh-xxs",
+										"bottom": "var:preset|spacing|flyhigh-xxs",
+										"left": "var:preset|spacing|flyhigh-xxs"
+									}
+								}
+							}
+						}
+					}
+				}
+			}
 		}
 	},
 	"templateParts": [

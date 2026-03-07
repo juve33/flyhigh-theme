@@ -1,0 +1,7 @@
+footer.wp-block-template-part {
+    margin-top: auto;
+}
+
+footer.wp-block-template-part+footer.wp-block-template-part {
+    margin-top: 0;
+}

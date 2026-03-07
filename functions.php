@@ -30,7 +30,6 @@ function flyhigh_register_styles() {
     
     $stylesheets = array(
         'main',
-        'variables',
         'header',
         'blocks',
         'footer',
@@ -58,5 +57,97 @@ function flyhigh_register_styles() {
 }
 
 add_action('wp_enqueue_scripts', 'flyhigh_register_styles');
+
+
+
+function flyhigh_register_scripts() {
+
+    $version = wp_get_theme()->get( 'Version' );
+    wp_enqueue_script( 'flyhigh-jquery', 'https://code.jquery.com/jquery-4.0.0.min.js', array(), '4.0.0', true );
+
+    $scripts = array(
+        'navigation',
+    );
+
+    foreach ( $scripts as $script ) :
+        wp_enqueue_script( 'flyhigh-' . $script, get_template_directory_uri() . '/assets/js/' . $script . '.js', array(), $version, true );
+    endforeach;
+
+}
+
+add_action('wp_enqueue_scripts', 'flyhigh_register_scripts');
+
+
+
+function flyhigh_replace_nav_icon($block_content, $block) {
+
+    if ($block['blockName'] !== 'core/navigation') {
+        return $block_content;
+    }
+
+    libxml_use_internal_errors(true);
+
+    $dom = new DOMDocument();
+    $dom->loadHTML($block_content);
+
+    $xpath = new DOMXPath($dom);
+
+    // Custom icons
+    $open_svg = '
+        <svg viewBox="0 0 24 24" class="flyhigh-menu-icon" xmlns="http://www.w3.org/2000/svg">
+            <style>
+                text {
+                    font-family: inherit;
+                    font-size: 5.5px;
+                }
+            </style>
+
+            <path d="M 3 4 h 18 M 3 9 h 18 M 3 14 h 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            <text x="2" y="22" textLength="20">MENU</text>
+        </svg>
+    ';
+
+    $close_svg = '
+        <svg viewBox="0 0 24 24" class="flyhigh-menu-icon" xmlns="http://www.w3.org/2000/svg">
+    <style>
+        text {
+            font-family: inherit;
+            font-size: 5.5px;
+        }
+    </style>
+
+    <path d="M 6 6 l 12 12 M 18 6 l -12 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+</svg>
+    ';
+
+    // Replace open button icon
+    $open_buttons = $xpath->query("//*[contains(@class,'wp-block-navigation__responsive-container-open')]");
+
+    foreach ($open_buttons as $button) {
+        while ($button->firstChild) {
+            $button->removeChild($button->firstChild);
+        }
+        $fragment = $dom->createDocumentFragment();
+        $fragment->appendXML($open_svg);
+        $button->appendChild($fragment);
+    }
+
+    // Replace close button icon
+    $close_buttons = $xpath->query("//*[contains(@class,'wp-block-navigation__responsive-container-close')]");
+
+    foreach ($close_buttons as $button) {
+        while ($button->firstChild) {
+            $button->removeChild($button->firstChild);
+        }
+        $fragment = $dom->createDocumentFragment();
+        $fragment->appendXML($close_svg);
+        $button->appendChild($fragment);
+    }
+
+    return $dom->saveHTML();
+
+}
+
+add_filter('render_block', 'flyhigh_replace_nav_icon', 10, 2);
 
 ?>

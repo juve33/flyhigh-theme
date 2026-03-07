@@ -1,0 +1,53 @@
+:root {
+    --wp--preset--font-size--small: var(--wp--preset--font-size--flyhigh-small);
+    --wp--preset--font-size--medium: var(--wp--preset--font-size--flyhigh-medium);
+    --wp--preset--font-size--large: var(--wp--preset--font-size--flyhigh-large);
+    --wp--preset--font-size--x-large: var(--wp--preset--font-size--flyhigh-x-large);
+
+    font-size: 18px;
+}
+
+html.has-modal-open {
+    overflow: initial;
+}
+
+.wp-site-blocks {
+    display: flex;
+    flex-direction: column;
+
+    width: 100%;
+    min-height: 100vh;
+    min-height: 100svh;
+
+    overflow: hidden;
+}
+
+.admin-bar .wp-site-blocks {
+    min-height: calc(100vh - var(--wp-admin--admin-bar--height, 0px));
+    min-height: calc(100svh - var(--wp-admin--admin-bar--height, 0px));
+}
+
+:where(.wp-site-blocks) > * {
+    margin-block: initial;
+}
+
+main.wp-block-group>:first-child:not(.wp-block-post-content),
+.wp-block-post-content>:first-child {
+    padding-top: calc(1rem + 3 * var(--wp--preset--spacing--flyhigh-s));
+}
+
+main.wp-block-group>:first-child:not(.wp-block-post-content)::before,
+.wp-block-post-content>:first-child::before {
+    content: '';
+
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+
+    height: calc(2rem + 6 * var(--wp--preset--spacing--flyhigh-s));
+
+    background-image: linear-gradient(to bottom, #0007, #0000);
+
+    z-index: 1;
+}
