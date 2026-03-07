@@ -111,11 +111,22 @@ header:not(.flyhigh-header-default)>.wp-block-group>.wp-block-group {
     transform: translateX(0%);
 }
 
+.wp-block-template-part:not(.flyhigh-header-default) .wp-block-navigation__responsive-container {
+    transition: color 0s var(--flyhigh--transition--header), transform var(--flyhigh--transition--header) !important;
+}
+
+.wp-block-template-part:not(.flyhigh-header-default) .wp-block-navigation__responsive-container.is-menu-open {
+    transition: transform var(--flyhigh--transition--header) !important;
+}
+
 .wp-block-navigation__responsive-dialog {
     margin: 0 !important;
 }
 
 .wp-block-navigation__responsive-container-content {
+    align-items: var(--navigation-layout-justification-setting, inherit) !important;
+    flex-direction: column !important;
+
     padding-top: var(--wp--preset--spacing--flyhigh-m) !important;
 }
 
