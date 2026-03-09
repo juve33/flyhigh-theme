@@ -102,6 +102,7 @@ function flyhigh_replace_nav_icon($block_content, $block) {
                 text {
                     font-family: inherit;
                     font-size: 5.5px;
+                    font-weight: normal;
                 }
             </style>
 
@@ -112,13 +113,6 @@ function flyhigh_replace_nav_icon($block_content, $block) {
 
     static $close_svg = '
         <svg viewBox="0 0 24 24" class="flyhigh-menu-icon" xmlns="http://www.w3.org/2000/svg">
-            <style>
-                text {
-                    font-family: inherit;
-                    font-size: 5.5px;
-                }
-            </style>
-
             <path d="M 6 6 l 12 12 M 18 6 l -12 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
         </svg>
     ';
@@ -151,6 +145,6 @@ function flyhigh_replace_nav_icon($block_content, $block) {
 
 }
 
-add_filter('render_block', 'flyhigh_replace_nav_icon', 10, 2);
+add_filter('render_block_core/navigation', 'flyhigh_replace_nav_icon', 10, 2);
 
 ?>

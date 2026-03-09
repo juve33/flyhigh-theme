@@ -8,7 +8,15 @@
 
 /* BUTTONS */
 
-.flyhigh-buttons-compact :where(.wp-block-button .wp-block-button__link) {
+.wp-element-button {
+    --flyhigh-button-transition: .25s;
+
+    text-shadow: none;
+
+    transition: background-color var(--flyhigh-button-transition), color var(--flyhigh-button-transition);
+}
+
+.flyhigh-buttons-compact :where(.wp-block-button:not(.flyhigh-buttons-default .wp-block-button) .wp-block-button__link) {
     padding: var(--wp--preset--spacing--flyhigh-xxs);
 }
 
@@ -22,6 +30,42 @@
 
 .wp-block-group.is-layout-grid.alignfull {
     gap: 0;
+}
+
+
+
+/* NAVIGATION LINK */
+
+.wp-block-navigation .wp-block-navigation-item {
+    background-color: unset;
+}
+
+.wp-block-navigation-item__content {
+    padding-block: var(--wp--preset--spacing--flyhigh-s);
+}
+
+
+
+/* NAVIGATION SUBMENU */
+
+.wp-block-navigation__submenu-container {
+    min-width: unset !important;
+    width: max-content !important;
+
+    border: none !important;
+    border-radius: 0 0 var(--wp--preset--spacing--flyhigh-xxs) var(--wp--preset--spacing--flyhigh-xxs);
+}
+
+.wp-block-navigation:not(.has-text-color) .wp-block-navigation__submenu-container {
+    color: inherit;
+}
+
+.wp-block-navigation:not(.is-responsive) .wp-block-navigation__submenu-container {
+    box-shadow: 0px 1.5px 3px #0007;
+}
+
+.wp-block-navigation__submenu-container > .wp-block-navigation-item > .wp-block-navigation-item__content {
+    padding: var(--wp--preset--spacing--flyhigh-xxs) !important;
 }
 
 

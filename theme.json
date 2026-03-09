@@ -6,8 +6,9 @@
 			"radius": false
 		},
 		"color": {
+			"background": false,
 			"defaultDuotone": true,
-			"defaultGradients": true,
+			"defaultGradients": false,
 			"defaultPalette": false,
 			"palette": [
 				{
@@ -82,7 +83,12 @@
 				{
 					"name": "Primary",
 					"slug": "flyhigh-primary",
-					"fontFamily": "sans-serif"
+					"fontFamily": "'Encode Sans', sans-serif"
+				},
+				{
+					"name": "Secondary",
+					"slug": "flyhigh-secondary",
+					"fontFamily": "'Baloo 2', sans-serif"
 				}
 			],
 			"fontSizes": [
@@ -99,23 +105,69 @@
 				{
 					"name": "Large",
 					"slug": "flyhigh-large",
-					"size": "1.5rem"
+					"size": "1.4rem"
 				},
 				{
 					"name": "Extra Large",
 					"slug": "flyhigh-x-large",
 					"size": "2rem"
 				}
-			]
+			],
+			"fontStyle": false,
+			"fontWeight": true,
+			"letterSpacing": false,
+			"textDecoration": false,
+			"textTransform": false
 		},
 		"useRootPaddingAwareAlignments": true,
 		"blocks": {
+			"core/button": {
+				"color": {
+					"background": true
+				},
+				"typography": {
+					"textTransform": true
+				}
+			},
+			"core/buttons": {
+				"typography": {
+					"textTransform": true
+				}
+			},
+			"core/cover": {
+				"color": {
+					"gradients": [
+						{
+							"name": "Darker Overlay",
+							"slug": "flyhigh-cover-darker-overlay",
+							"gradient": "linear-gradient(to top, #0009, #0000)"
+						}
+					]
+				}
+			},
 			"core/group": {
+				"color": {
+					"background": true
+				},
 				"dimensions": {
 					"minHeight": true
 				},
 				"spacing": {
 					"padding": true
+				}
+			},
+			"core/heading": {
+				"typography": {
+					"fontWeight": true,
+					"letterSpacing": true,
+					"textTransform": true
+				}
+			},
+			"core/paragraph": {
+				"typography": {
+					"fontStyle": true,
+					"fontWeight": true,
+					"textDecoration": true
 				}
 			}
 		}
@@ -130,39 +182,42 @@
 		},
 		"typography": {
 			"fontFamily": "var:preset|font-family|flyhigh-primary",
-			"fontSize": "var:preset|font-size|flyhigh-medium"
+			"fontSize": "var:preset|font-size|flyhigh-medium",
+			"fontWeight": "normal"
 		},
 		"blocks": {
-			"core/button": {
+		},
+		"elements": {
+			"button": {
 				"border": {
 					"radius": "var:preset|spacing|flyhigh-xxs"
 				},
+				"color": {
+					"background": "var:preset|color|flyhigh-blue",
+					"text": "var:preset|color|flyhigh-white"
+				},
 				"spacing": {
 					"padding": {
-						"top": "var:preset|spacing|flyhigh-s",
+						"top": "var:preset|spacing|flyhigh-xs",
 						"right": "var:preset|spacing|flyhigh-m",
-						"bottom": "var:preset|spacing|flyhigh-s",
+						"bottom": "var:preset|spacing|flyhigh-xs",
 						"left": "var:preset|spacing|flyhigh-m"
 					}
 				},
 				"typography": {
+					"fontFamily": "var:preset|font-family|flyhigh-secondary",
+					"fontWeight": "bold",
 					"lineHeight": "1"
 				},
-				"variations": {
-					"buttons-compact": {
-						"elements": {
-							"button": {
-								"spacing": {
-									"padding": {
-										"top": "var:preset|spacing|flyhigh-xxs",
-										"right": "var:preset|spacing|flyhigh-xxs",
-										"bottom": "var:preset|spacing|flyhigh-xxs",
-										"left": "var:preset|spacing|flyhigh-xxs"
-									}
-								}
-							}
-						}
+				":hover": {
+					"color": {
+						"background": "var:preset|color|flyhigh-yellow"
 					}
+				}
+			},
+			"heading": {
+				"typography": {
+					"fontFamily": "var:preset|font-family|flyhigh-secondary"
 				}
 			}
 		}
