@@ -186,6 +186,20 @@
 			"fontWeight": "normal"
 		},
 		"blocks": {
+			"core/site-title": {
+				"spacing": {
+					"padding": {
+						"top": "var:preset|spacing|flyhigh-s",
+						"right": "var:preset|spacing|flyhigh-s",
+						"bottom": "var:preset|spacing|flyhigh-s",
+						"left": "var:preset|spacing|flyhigh-s"
+					}
+				},
+				"typography": {
+					"fontFamily": "var:preset|font-family|flyhigh-secondary",
+					"fontWeight": "bold"
+				}
+			}
 		},
 		"elements": {
 			"button": {
