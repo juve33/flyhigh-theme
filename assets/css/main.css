@@ -1,4 +1,4 @@
-@import url(https://fonts.bunny.net/css?family=baloo-2:400,600,800);
+@import url(https://fonts.bunny.net/css?family=baloo-2:800);
 @import url(https://fonts.bunny.net/css?family=share:400,700);
 
 @import url(https://fonts.bunny.net/css?family=encode-sans:300,400,600);
@@ -20,6 +20,10 @@
 
 html.has-modal-open {
     overflow: initial;
+}
+
+a:not([href]) {
+    cursor: default;
 }
 
 .wp-site-blocks {

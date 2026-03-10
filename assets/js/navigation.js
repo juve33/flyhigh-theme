@@ -20,6 +20,8 @@ function nav_style(condition) {
 
 $(document).ready(function() {
 
+    // SCROLLING
+
     let lastScrollTop = $(this).scrollTop();
 
     nav_style($(this).scrollTop() > 63);

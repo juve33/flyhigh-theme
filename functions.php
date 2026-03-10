@@ -66,6 +66,7 @@ function flyhigh_register_scripts() {
     wp_enqueue_script( 'flyhigh-jquery', 'https://code.jquery.com/jquery-4.0.0.min.js', array(), '4.0.0', true );
 
     $scripts = array(
+        'main',
         'navigation',
     );
 
@@ -146,5 +147,48 @@ function flyhigh_replace_nav_icon($block_content, $block) {
 }
 
 add_filter('render_block_core/navigation', 'flyhigh_replace_nav_icon', 10, 2);
+
+
+
+function flyhigh_replace_submenu_icon($block_content, $block) {
+
+    if ($block['blockName'] !== 'core/navigation-submenu') {
+        return $block_content;
+    }
+
+    libxml_use_internal_errors(true);
+
+    $dom = new DOMDocument();
+    $dom->loadHTML(
+        '<?xml encoding="utf-8" ?>' . $block_content,
+        LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD
+    );
+
+    $xpath = new DOMXPath($dom);
+
+    // Custom icons
+    static $open_svg = '
+        <svg viewBox="0 0 24 24" class="flyhigh-menu-icon" xmlns="http://www.w3.org/2000/svg">
+            <path d="M 3 4 h 18 M 3 9 h 18 M 3 14 h 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+    ';
+
+    // Replace open button icon
+    $open_buttons = $xpath->query("//*[contains(@class,'wp-block-navigation-submenu__toggle')]");
+
+    foreach ($open_buttons as $button) {
+        while ($button->firstChild) {
+            $button->removeChild($button->firstChild);
+        }
+        $fragment = $dom->createDocumentFragment();
+        $fragment->appendXML($open_svg);
+        $button->appendChild($fragment);
+    }
+
+    return $dom->saveHTML();
+
+}
+
+//add_filter('render_block_core/navigation-submenu', 'flyhigh_replace_submenu_icon', 10, 2);
 
 ?>

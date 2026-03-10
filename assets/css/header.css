@@ -60,6 +60,10 @@ header:not(.flyhigh-header-default)>.wp-block-group>.wp-block-group {
     aspect-ratio: 1;
 }
 
+header:not(.flyhigh-header-default) .wp-block-navigation__responsive-container-open:hover {
+    color: inherit;
+}
+
 .wp-block-navigation__responsive-container-close {
     position: static;
 }
@@ -147,6 +151,18 @@ header:not(.flyhigh-header-default) .wp-block-navigation:not(.has-background) .w
     background-color: unset;
 }
 
+:where(.wp-block-navigation:not(.is-responsive)>.wp-block-navigation-submenu)::before {
+    transition: background-color .25s, top calc(.25 * var(--flyhigh--transition--header)), height .25s, width .25s !important;
+}
+
+header:not(.flyhigh-header-default) :where(.wp-block-navigation:not(.is-responsive)>.wp-block-navigation-submenu)::before {
+    top: calc(.5 * var(--wp--preset--spacing--flyhigh-xxs));
+
+    border-radius: calc(.5 * var(--wp--preset--spacing--flyhigh-xxs));
+
+    background-color: currentColor !important;
+}
+
 .wp-block-navigation:not(.is-responsive) .wp-block-navigation__submenu-container {
     transition:
         background-color calc(.5 * var(--flyhigh--transition--header)) calc(.5 * var(--flyhigh--transition--header)),
@@ -165,4 +181,14 @@ header:not(.flyhigh-header-default) .wp-block-navigation:not(.is-responsive) .wp
         box-shadow calc(.5 * var(--flyhigh--transition--header)),
         color calc(.5 * var(--flyhigh--transition--header)),
         top calc(.5 * var(--flyhigh--transition--header)) calc(.5 * var(--flyhigh--transition--header));
+}
+
+header:not(.flyhigh-header-default) .wp-block-navigation:not(.is-responsive) .wp-block-navigation-item__content:hover,
+header:not(.flyhigh-header-default) .wp-block-navigation:not(.is-responsive) .current-menu-item > .wp-block-navigation-item__content {
+    color: inherit !important;
+}
+
+header:not(.flyhigh-header-default) :where(.wp-block-navigation:not(.is-responsive) > .wp-block-navigation-submenu:hover > .wp-block-navigation-item__content),
+header:not(.flyhigh-header-default) :where(.wp-block-navigation:not(.is-responsive) > .wp-block-navigation-submenu:hover > .wp-block-navigation-item__content + .wp-block-navigation-submenu__toggle) {
+    color: inherit !important;
 }
