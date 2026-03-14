@@ -4,6 +4,18 @@
     margin-block: var(--wp--preset--spacing--flyhigh-s);
 }
 
+:where(.wp-block-cover-image:not(.has-text-color)),
+:where(.wp-block-cover:not(.has-text-color)),
+:where(.wp-block-cover-image.is-light:not(.has-text-color)) .has-text-color,
+:where(.wp-block-cover.is-light:not(.has-text-color)) .has-text-color {
+    text-shadow: 0px 0px .5em #000b;
+}
+
+:where(.wp-block-cover-image.is-light:not(.has-text-color)),
+:where(.wp-block-cover.is-light:not(.has-text-color)) {
+    text-shadow: none;
+}
+
 
 
 /* BUTTONS */
@@ -12,6 +24,7 @@
     --flyhigh-button-transition: .25s;
 
     text-shadow: none;
+    text-wrap: balance;
 
     transition: background-color var(--flyhigh-button-transition), color var(--flyhigh-button-transition);
 }
@@ -30,6 +43,14 @@
 
 .wp-block-group.is-layout-grid.alignfull {
     gap: 0;
+}
+
+
+
+/* HEADING */
+
+.wp-block-heading {
+    text-wrap: balance;
 }
 
 
@@ -132,8 +153,8 @@
 
     align-self: center;
 
-    height: 0;
-    width: var(--wp--preset--spacing--flyhigh-l);
+    height: calc(.5 * var(--wp--preset--spacing--flyhigh-xxs));
+    width: 0;
 
     border-radius: 0 0 calc(.5 * var(--wp--preset--spacing--flyhigh-xxs)) calc(.5 * var(--wp--preset--spacing--flyhigh-xxs));
 
@@ -141,14 +162,18 @@
 
     transform: translateX(-50%);
     
-    transition: height .25s, width .25s;
+    transition: width .25s;
 }
 
-:where(.wp-block-navigation:not(.is-responsive) > .wp-block-navigation-submenu):hover::before,
 :where(.wp-block-navigation:not(.is-responsive) > .wp-block-navigation-submenu.current-menu-ancestor)::before {
     height: calc(.5 * var(--wp--preset--spacing--flyhigh-xxs));
 }
 
+:where(.wp-block-navigation:not(.is-responsive) > .wp-block-navigation-submenu.current-menu-ancestor)::before {
+    width: var(--wp--preset--spacing--flyhigh-l);
+}
+
+:where(.wp-block-navigation:not(.is-responsive) > .wp-block-navigation-submenu):hover::before,
 :where(.wp-block-navigation:not(.is-responsive) > .wp-block-navigation-submenu.current-menu-ancestor):hover::before {
     width: var(--wp--preset--spacing--flyhigh-m);
 }
@@ -160,6 +185,11 @@
 
 
 /* PARAGRAPH */
+
+p {
+    text-wrap: balance;
+    text-wrap: pretty;
+}
 
 p:first-child {
     margin-top: 0;

@@ -8,7 +8,7 @@
 		"color": {
 			"background": false,
 			"defaultDuotone": true,
-			"defaultGradients": false,
+			"defaultGradients": true,
 			"defaultPalette": false,
 			"palette": [
 				{
@@ -111,6 +111,11 @@
 					"name": "Extra Large",
 					"slug": "flyhigh-x-large",
 					"size": "2rem"
+				},
+				{
+					"name": "2 Extra Large",
+					"slug": "flyhigh-2x-large",
+					"size": "4rem"
 				}
 			],
 			"fontStyle": false,
@@ -160,7 +165,11 @@
 				"typography": {
 					"fontWeight": true,
 					"letterSpacing": true,
+					"lineHeight": true,
 					"textTransform": true
+				},
+				"spacing": {
+					"margin": true
 				}
 			},
 			"core/paragraph": {

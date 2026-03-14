@@ -152,7 +152,7 @@ header:not(.flyhigh-header-default) .wp-block-navigation:not(.has-background) .w
 }
 
 :where(.wp-block-navigation:not(.is-responsive)>.wp-block-navigation-submenu)::before {
-    transition: background-color .25s, top calc(.25 * var(--flyhigh--transition--header)), height .25s, width .25s !important;
+    transition: background-color .25s, top calc(.25 * var(--flyhigh--transition--header)), width .25s !important;
 }
 
 header:not(.flyhigh-header-default) :where(.wp-block-navigation:not(.is-responsive)>.wp-block-navigation-submenu)::before {
