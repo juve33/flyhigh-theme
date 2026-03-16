@@ -18,6 +18,7 @@ header.wp-block-template-part {
 
 header.wp-block-template-part>.wp-block-group>.wp-block-group {
     box-shadow: 0px 1.5px 3px #0007;
+
     transition: all calc(.5 * var(--flyhigh--transition--header));
 }
 
@@ -151,10 +152,12 @@ header:not(.flyhigh-header-default) .wp-block-navigation:not(.has-background) .w
     background-color: unset;
 }
 
+:where(.wp-block-navigation:not(.is-responsive)>.wp-block-navigation-item)::before,
 :where(.wp-block-navigation:not(.is-responsive)>.wp-block-navigation-submenu)::before {
     transition: background-color .25s, top calc(.25 * var(--flyhigh--transition--header)), width .25s !important;
 }
 
+header:not(.flyhigh-header-default) :where(.wp-block-navigation:not(.is-responsive)>.wp-block-navigation-item)::before,
 header:not(.flyhigh-header-default) :where(.wp-block-navigation:not(.is-responsive)>.wp-block-navigation-submenu)::before {
     top: calc(.5 * var(--wp--preset--spacing--flyhigh-xxs));
 

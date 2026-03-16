@@ -33,8 +33,6 @@ a:not([href]) {
     width: 100%;
     min-height: 100vh;
     min-height: 100svh;
-
-    overflow: hidden;
 }
 
 .admin-bar .wp-site-blocks {

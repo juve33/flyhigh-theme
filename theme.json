@@ -145,7 +145,7 @@
 						{
 							"name": "Darker Overlay",
 							"slug": "flyhigh-cover-darker-overlay",
-							"gradient": "linear-gradient(to top, #0009, #0000)"
+							"gradient": "linear-gradient(to top, #000f, #0000)"
 						}
 					]
 				}
