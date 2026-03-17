@@ -60,6 +60,40 @@ add_action('wp_enqueue_scripts', 'flyhigh_register_styles');
 
 
 
+function flyhigh_register_block_styles() {
+
+    $version = wp_get_theme()->get( 'Version' );
+
+    $blocks = array(
+        array( 'core', 'buttons'),
+        array( 'core', 'cover'),
+        array( 'core', 'group'),
+        array( 'core', 'heading'),
+        array( 'core', 'navigation'),
+        array( 'core', 'navigation-link'),
+        array( 'core', 'navigation-submenu'),
+        array( 'core', 'pagelist'),
+        array( 'core', 'paragraph'),
+    );
+
+    foreach ( $blocks as $block ) :
+
+        wp_enqueue_block_style( $block[0] . '/' . $block[1], array(
+            'handle' => 'flyhigh-' . $block[0] . '-' . $block[1],
+            'src'    => get_theme_file_uri( "assets/css/blocks/" . $block[0] . "-" . $block[1] . ".css" ),
+            'ver'  => $version,
+            'media'  => 'all',
+            'path'   => get_theme_file_path( "assets/css/blocks/" . $block[0] . "-" . $block[1] . ".css" ),
+        ) );
+
+    endforeach;
+    
+}
+
+add_action( 'init', 'flyhigh_register_block_styles' );
+
+
+
 function flyhigh_register_scripts() {
 
     $version = wp_get_theme()->get( 'Version' );

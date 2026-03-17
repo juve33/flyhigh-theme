@@ -1,0 +1,12 @@
+.wp-block-navigation__responsive-container-content .wp-block-page-list {
+    align-items: var(--navigation-layout-justification-setting, inherit) !important;
+    flex-direction: var(--navigation-layout-direction,initial) !important;
+}
+
+.wp-block-navigation__responsive-container .wp-block-pages-list__item__link {
+    padding: var(--wp--preset--spacing--flyhigh-m) 0 !important;
+}
+
+.wp-block-navigation__responsive-container .wp-block-pages-list__item__link {
+    padding: var(--wp--preset--spacing--flyhigh-m) 0 !important;
+}

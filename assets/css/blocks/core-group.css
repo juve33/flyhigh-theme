@@ -1,0 +1,7 @@
+.wp-block-group {
+    display: flow-root;
+}
+
+.wp-block-group.is-layout-grid.alignfull {
+    gap: 0;
+}

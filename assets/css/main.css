@@ -64,3 +64,8 @@ main.wp-block-group>:first-child:not(.wp-block-post-content)::before,
 
     z-index: 1;
 }
+
+main > .alignfull,
+main > .alignfull > .alignfull {
+    margin-top: 0;
+}

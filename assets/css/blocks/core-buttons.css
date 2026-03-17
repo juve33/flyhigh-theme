@@ -1,0 +1,12 @@
+.wp-element-button {
+    --flyhigh-button-transition: .25s;
+
+    text-shadow: none;
+    text-wrap: balance;
+
+    transition: background-color var(--flyhigh-button-transition), color var(--flyhigh-button-transition);
+}
+
+.flyhigh-buttons-compact :where(.wp-block-button:not(.flyhigh-buttons-default .wp-block-button) .wp-block-button__link) {
+    padding: var(--wp--preset--spacing--flyhigh-xxs) !important;
+}

@@ -1,0 +1,72 @@
+.has-child>a:not([href]) {
+    cursor: pointer;
+}
+
+.wp-block-navigation:not(.is-responsive) > .wp-block-navigation-submenu:hover > .wp-block-navigation-item__content,
+.wp-block-navigation:not(.is-responsive) > .wp-block-navigation-submenu:hover > .wp-block-navigation-item__content + .wp-block-navigation-submenu__toggle {
+    color: var(--wp--preset--color--flyhigh-yellow);
+}
+
+.wp-block-navigation:not(.is-responsive) .wp-block-navigation-submenu__toggle {
+    transition: color .25s;
+}
+
+.wp-block-navigation:not(.is-responsive) .wp-block-navigation-submenu__toggle svg {
+    transition: transform .25s;
+}
+
+.wp-block-navigation__submenu-container {
+    min-width: unset !important;
+    width: max-content !important;
+
+    border: none !important;
+    border-radius: 0 0 var(--wp--preset--spacing--flyhigh-xxs) var(--wp--preset--spacing--flyhigh-xxs);
+}
+
+.wp-block-navigation:not(.has-text-color) .wp-block-navigation__submenu-container {
+    color: inherit !important;
+}
+
+.wp-block-navigation:not(.is-responsive) .wp-block-navigation__submenu-container {
+    left: 50% !important;
+
+    align-items: center !important;
+
+    box-shadow: 0px 1.5px 3px #0007;
+
+    transform: translateX(-50%);
+}
+
+:where(.wp-block-navigation:not(.is-responsive) > .wp-block-navigation-submenu)::before {
+    content: '';
+
+    position: absolute;
+    top: 0;
+    left: 50%;
+
+    align-self: center;
+
+    height: calc(.5 * var(--wp--preset--spacing--flyhigh-xxs));
+    width: 0;
+
+    border-radius: 0 0 calc(.5 * var(--wp--preset--spacing--flyhigh-xxs)) calc(.5 * var(--wp--preset--spacing--flyhigh-xxs));
+
+    background-color: var(--wp--preset--color--flyhigh-yellow);
+
+    transform: translateX(-50%);
+    
+    transition: width .25s;
+}
+
+:where(.wp-block-navigation:not(.is-responsive) > .wp-block-navigation-submenu.current-menu-ancestor)::before {
+    width: var(--wp--preset--spacing--flyhigh-l);
+}
+
+:where(.wp-block-navigation:not(.is-responsive) > .wp-block-navigation-submenu):hover::before,
+:where(.wp-block-navigation:not(.is-responsive) > .wp-block-navigation-submenu.current-menu-ancestor):hover::before {
+    width: var(--wp--preset--spacing--flyhigh-m);
+}
+
+.wp-block-navigation__submenu-container > .wp-block-navigation-item > .wp-block-navigation-item__content {
+    padding: var(--wp--preset--spacing--flyhigh-xxs) !important;
+}

@@ -1,0 +1,45 @@
+.wp-block-heading {
+    text-wrap: balance;
+}
+
+@media screen and (prefers-reduced-motion: no-preference) {
+
+    @supports (animation-timeline: view(max(15%, 4rem))) {
+        main .wp-block-heading {
+            animation: fade-in 1s linear;
+            animation-timeline: view(max(15%, 4rem));
+            animation-range: contain;
+
+            opacity: 0;
+        }
+
+        @supports (animation-range: contain) {
+            main .wp-block-heading {
+                animation-timeline: view();
+                animation-range-start: contain min(5%, 4rem);
+                animation-range-end: contain calc(100% - 4rem);
+            }
+
+            @media (min-width: 700px) {
+                main .wp-block-heading {
+                    animation-range-start: contain 4rem;
+                }
+            }
+        }
+
+        @keyframes fade-in {
+            from {
+                opacity: 0;
+            }
+            25% {
+                opacity: 1;
+            }
+            75% {
+                opacity: 1;
+            }
+            to {
+                opacity: 0;
+            }
+        }
+    }
+}

@@ -1,0 +1,20 @@
+.wp-block-cover.alignwide {
+    margin-block: var(--wp--preset--spacing--flyhigh-s);
+}
+
+:where(.wp-block-cover-image:not(.has-text-color)),
+:where(.wp-block-cover:not(.has-text-color)),
+:where(.wp-block-cover-image.is-light:not(.has-text-color)) .has-text-color,
+:where(.wp-block-cover.is-light:not(.has-text-color)) .has-text-color {
+    text-shadow: 0px 0px .5em #000b;
+}
+
+:where(.wp-block-cover-image.is-light:not(.has-text-color)),
+:where(.wp-block-cover.is-light:not(.has-text-color)) {
+    text-shadow: none;
+}
+
+
+.wp-block-cover__background.has-flyhigh-cover-darker-overlay-gradient-background {
+    background: var(--wp--preset--gradient--flyhigh-cover-darker-overlay);
+}
