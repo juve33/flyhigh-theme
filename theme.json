@@ -8,7 +8,7 @@
 		"color": {
 			"background": false,
 			"defaultDuotone": true,
-			"defaultGradients": true,
+			"defaultGradients": false,
 			"defaultPalette": false,
 			"palette": [
 				{
